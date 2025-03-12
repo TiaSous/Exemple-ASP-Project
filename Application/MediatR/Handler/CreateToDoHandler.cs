@@ -27,7 +27,7 @@ namespace Application.MediatR.Handler
                 UserId = request.toDoDto.UserId
             };
 
-            await _toDoRepository.addTodo(todo);
+            await _toDoRepository.AddTodo(todo);
         }
     }
 }
