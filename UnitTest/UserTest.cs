@@ -1,11 +1,11 @@
 using System;
-using Domain.Entities;
-using Domain.Interfaces;
+using Infrastructure.Entities;
+using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
-using SqlServer;
-using SqlServer.Repositories;
+using Infrastructure;
+using Infrastructure.Repositories;
 
 namespace UnitTest
 {
@@ -44,7 +44,6 @@ namespace UnitTest
 
                 Assert.That(countUser, Is.EqualTo(1));
             }
-
         }
     }
 }

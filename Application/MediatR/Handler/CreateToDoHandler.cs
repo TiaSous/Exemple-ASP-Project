@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using Application.MediatR.Commands;
-using SqlServer.Repositories;
-using Domain.Entities;
+using Infrastructure.Interfaces;
+using Infrastructure.Entities;
 
 namespace Application.MediatR.Handler
 {
     public class CreateToDoHandler : IRequestHandler<CreateToDoCommand>
     {
-        private readonly ToDoRepository _toDoRepository;
-        public CreateToDoHandler (ToDoRepository toDoRepository)
+        private readonly ITodoRepository _toDoRepository;
+        public CreateToDoHandler (ITodoRepository toDoRepository)
         {
             _toDoRepository = toDoRepository;
         }

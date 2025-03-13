@@ -3,7 +3,7 @@ using Application.MediatR.Commands;
 using Application.Dto;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SqlServer.Repositories;
+using Infrastructure.Repositories;
 
 namespace Application.Controllers
 {

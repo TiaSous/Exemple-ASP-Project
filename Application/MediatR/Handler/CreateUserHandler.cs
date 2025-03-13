@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Extensions;
 using Application.MediatR.Commands;
-using Domain.Entities;
-using Domain.Interfaces;
+using Infrastructure.Interfaces;
 using MediatR;
-using SqlServer.Repositories;
 
 namespace Application.MediatR.Handler
 {
@@ -19,14 +18,8 @@ namespace Application.MediatR.Handler
             _userRepository = userRepository;
         }
         public async Task Handle(CreateUserCommand request, CancellationToken cancellationToken)
-        {
-            var user = new UserEntity
-            {
-                Age = request.UserDto.Age,
-                Name = request.UserDto.Name,
-                Password = request.UserDto.Password
-            };
-            await _userRepository.AddUser(user);
+        { 
+            await _userRepository.AddUser(request.UserDto.ToEntity());
         }
     }
 }

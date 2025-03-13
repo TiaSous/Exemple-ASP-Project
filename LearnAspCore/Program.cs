@@ -1,8 +1,8 @@
 using Application.MediatR.Commands;
-using Domain.Interfaces;
+using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using SqlServer;
-using SqlServer.Repositories;
+using Infrastructure;
+using Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

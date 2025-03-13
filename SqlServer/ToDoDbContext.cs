@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
+﻿using Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace SqlServer
+namespace Infrastructure
 {
     public class ToDoDbContext : DbContext
     {

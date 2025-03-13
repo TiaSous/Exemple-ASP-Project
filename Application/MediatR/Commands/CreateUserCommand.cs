@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Dto;
-using Azure;
 using MediatR;
 
 namespace Application.MediatR.Commands
