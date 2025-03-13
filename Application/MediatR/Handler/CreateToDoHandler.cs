@@ -7,6 +7,7 @@ using MediatR;
 using Application.MediatR.Commands;
 using Infrastructure.Interfaces;
 using Infrastructure.Entities;
+using Application.Extensions;
 
 namespace Application.MediatR.Handler
 {
@@ -19,15 +20,8 @@ namespace Application.MediatR.Handler
         }
         public async Task Handle(CreateToDoCommand request, CancellationToken cancellationToken)
         {
-            var todo = new ToDoEntity
-            {
-                Title = request.toDoDto.Title,
-                Description = request.toDoDto.Description,
-                IsFinished = false,
-                UserId = request.toDoDto.UserId
-            };
-
-            await _toDoRepository.AddTodo(todo);
+            var omTodo = request.toDoDto.ToObjectModel();
+            await _toDoRepository.AddTodo(omTodo);
         }
     }
 }

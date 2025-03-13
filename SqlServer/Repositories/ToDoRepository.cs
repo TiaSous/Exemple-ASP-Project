@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.OM;
 using Infrastructure.Entities;
 using Infrastructure.Interfaces;
+using Infrastucture.Extensions;
 using Microsoft.EntityFrameworkCore;
 namespace Infrastructure.Repositories
 {
@@ -17,11 +19,11 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task AddTodo(ToDoEntity toDo)
+        public async Task AddTodo(OMToDo toDo)
         {
             using (var dbContext = _context.CreateDbContext())
             {
-                dbContext.ToDos.Add(toDo);
+                dbContext.ToDos.Add(toDo.ToEntity());
 
                 await dbContext.SaveChangesAsync();
             }
