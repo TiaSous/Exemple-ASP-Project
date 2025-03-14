@@ -14,8 +14,4 @@
 		<ProjectReference Include="..\Domain\Domain.csproj" />
 		<ProjectReference Include="..\SqlServer\Infrastucture.csproj" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Interfaces\" />
-	</ItemGroup>
 </Project>

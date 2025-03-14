@@ -3,6 +3,10 @@ using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure;
 using Infrastructure.Repositories;
+using Domain.Interfaces;
+using Domain.Helper;
+using Microsoft.AspNetCore.Identity;
+using Domain.OM;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +19,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContextFactory<ToDoDbContext>(options => options.UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=tododata;Integrated Security=True;"));
 builder.Services.AddScoped<ITodoRepository, ToDoRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IPasswordHelper, PasswordHelper>();
+builder.Services.AddScoped<IPasswordHasher<OMUser>, PasswordHasher<OMUser>>();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserCommand).Assembly));
 
